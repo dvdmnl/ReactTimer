@@ -34,6 +34,30 @@ describe('Countdown', () => {
             },3000)
         });
 
+        it('Should pause countdown when paused status', () => {
+            var countdown = ReactUtils.renderIntoDocument(<Countdown/>)
+            countdown.handleSetCountdown(3);
+            countdown.handleStatusChange('paused');
+
+            setTimeout(() => {
+                expect(countdown.state.count).toBe(3);
+                expect(countdown.state.countdownStatus).toBe('paused');
+            },1001);
+        });
+
+
+        it('Should reset countdown when stopped status', () => {
+            var countdown = ReactUtils.renderIntoDocument(<Countdown/>)
+            countdown.handleSetCountdown(3);
+            countdown.handleStatusChange('stopped');
+
+            setTimeout(() => {
+                expect(countdown.state.count).toBe(0);
+                expect(countdown.state.countdownStatus).toBe('stopped');
+            },1001);
+        });
+
+
     });
 
 
