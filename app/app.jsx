@@ -4,7 +4,6 @@ import { Router, Route, hashHistory, IndexRoute, browserHistory } from 'react-ro
 import routes from './Routes/Routes'
 
 //Load Foundation
-require('style!css!foundation-sites/dist/css/foundation.min.css')
 $(document).foundation();
 
 //App Styles
